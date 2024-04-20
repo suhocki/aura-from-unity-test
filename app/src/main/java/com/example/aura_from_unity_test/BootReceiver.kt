@@ -6,9 +6,11 @@ import android.content.Intent
 import android.os.SystemClock
 import java.util.Date
 
-class TestBootReceiver : BroadcastReceiver() {
+class BootReceiver : BroadcastReceiver() {
 
     override fun onReceive(context: Context?, intent: Intent?) {
+        if (intent?.action != Intent.ACTION_BOOT_COMPLETED) return
+
         val storage = DI.getBootStorage(context ?: return)
         val bootTime = System.currentTimeMillis() - SystemClock.elapsedRealtime()
 
