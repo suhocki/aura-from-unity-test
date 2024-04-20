@@ -4,6 +4,7 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.os.SystemClock
+import java.util.Date
 
 class TestBootReceiver : BroadcastReceiver() {
 
@@ -11,7 +12,7 @@ class TestBootReceiver : BroadcastReceiver() {
         val storage = DI.getStorage(context ?: return)
         val bootTime = System.currentTimeMillis() - SystemClock.elapsedRealtime()
 
-        storage.saveString(bootTime.toString())
+        storage.saveBootDate(Date(bootTime))
     }
 
 }
