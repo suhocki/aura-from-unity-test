@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">aura-from-unity-test</string>
+
+    <string name="no_boots_detected">No boots detected</string>
+
+    <string name="notification_limits">Total dismissals allowed</string>
+    <string name="notification_interval">Interval between dismissals</string>
 </resources>
