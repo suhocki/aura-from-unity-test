@@ -9,7 +9,7 @@ import java.util.Date
 class TestBootReceiver : BroadcastReceiver() {
 
     override fun onReceive(context: Context?, intent: Intent?) {
-        val storage = DI.getStorage(context ?: return)
+        val storage = DI.getBootStorage(context ?: return)
         val bootTime = System.currentTimeMillis() - SystemClock.elapsedRealtime()
 
         storage.saveBootDate(Date(bootTime))
