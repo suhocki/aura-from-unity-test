@@ -21,6 +21,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <receiver android:name=".TestBootReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.example.aura_from_unity_test.TEST_BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
     </application>
 
 </manifest>
