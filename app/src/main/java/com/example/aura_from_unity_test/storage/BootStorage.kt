@@ -1,4 +1,4 @@
-package com.example.aura_from_unity_test
+package com.example.aura_from_unity_test.storage
 
 import android.content.SharedPreferences
 import androidx.core.content.edit
