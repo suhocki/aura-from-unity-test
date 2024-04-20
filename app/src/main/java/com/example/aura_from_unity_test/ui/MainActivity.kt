@@ -1,4 +1,4 @@
-package com.example.aura_from_unity_test
+package com.example.aura_from_unity_test.ui
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
@@ -9,6 +9,8 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.core.widget.doAfterTextChanged
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.example.aura_from_unity_test.DI
+import com.example.aura_from_unity_test.R
 import com.example.aura_from_unity_test.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -17,7 +19,8 @@ class MainActivity : AppCompatActivity() {
         object: ViewModelProvider.Factory {
             override fun <T : ViewModel> create(modelClass: Class<T>): T {
                 return MainViewModel(
-                    configurationStorage = DI.getConfigurationStorage(applicationContext)
+                    configurationStorage = DI.getConfigurationStorage(applicationContext),
+                    bootStorage = DI.getBootStorage(applicationContext),
                 ) as T
             }
         }
@@ -47,5 +50,7 @@ class MainActivity : AppCompatActivity() {
                 editable.toString().toIntOrNull()
             )
         }
+
+        viewBinding.bootEvents.text = viewModel.getBootDates()
     }
 }
